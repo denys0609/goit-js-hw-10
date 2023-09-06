@@ -27,6 +27,7 @@ function renderSelect(breeds) {
 }
 
 (function fetchBreedsRender() {
+  ref.select.classList.add('unvisible');
   ref.loader.classList.remove('unvisible');
   fetchBreeds()
     .then(breeds => renderSelect(breeds))
@@ -41,10 +42,10 @@ function renderSelect(breeds) {
 })();
 
 function renderDesc(breed) {
-  const picture = `<img class="cat-picture" src="${breed.url}" alt="${breed.id}">`;
-  const descript = `<h2 class="cat-info-desc-title">${breed.breeds[0].name}</h2>
-        <p class="cat-info-desc-desc">${breed.breeds[0].description}</p>
-        <p class="cat-info-desc-temp"><b>Temperament:</b> ${breed.breeds[0].temperament}</p>`;
+  const picture = `<img class="cat-picture" src="${breed[0].url}" alt="${breed.id}">`;
+  const descript = `<h2 class="cat-info-desc-title">${breed[0].breeds[0].name}</h2>
+        <p class="cat-info-desc-desc">${breed[0].breeds[0].description}</p>
+        <p class="cat-info-desc-temp"><b>Temperament:</b> ${breed[0].breeds[0].temperament}</p>`;
   ref.catPic.insertAdjacentHTML('beforeend', picture);
   ref.catDesc.insertAdjacentHTML('beforeend', descript);
 }
